@@ -1,0 +1,232 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+header, nav, main, footer, aside{
+	display: block;
+}
+
+#wrapper{
+	width: 1190px;
+	margin: 0px auto;
+}
+
+#logo{
+	position: absolute;
+	bottom: 34px;
+	right: 0px;
+	width: 255px;
+	height: 44px;
+	background-image: url("../images/logo.png");
+	display: block;
+}
+
+#user{
+	position: absolute;
+	top: 8px;
+	left: 6px;
+	width: 104px;
+	height: 104px;
+	background-image: url("../images/user.png");
+	display: block;
+}
+
+#bell{
+	position: absolute;
+	top: 25px;
+	left: 130px;
+	width: 60px;
+	height: 60px;
+	background-image: url("../images/bell.png");
+	display: block;
+}
+
+#search{
+	width: 581px;
+	height: 36px;
+	border-style: none;
+	border-color: #FFFFFF;
+	border-radius: 10px;
+	background-image: url("../images/search.png");
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 20px;
+	margin: 10px auto;
+	display:block;
+	color: #777777;
+	font-family: Helvetica, sans-serif;
+	font-size: 14px;
+	text-align: center;
+	direction: rtl;
+}
+
+.clear{
+	clear: both;
+}
+
+/*-------Primary Classes-------*/
+
+.primaryHeader {
+	position: relative;
+	width: 1190px;
+	height: 113px;
+	background-color: #555555;
+	margin-bottom: 1px;
+}
+
+.primaryHeader div{
+	position: absolute;
+	left: 265px;
+	top: 26px;
+	width: 637px;
+	height: 56px;
+	background-color: #c9c9ce;
+}
+
+.primaryMenu {
+	position: relative;
+	float: right;
+	width: 252px;
+	height: 687px;
+	background-color: #555555;
+}
+
+.primaryMenu ul{
+	position: absolute;
+	top: 25px;
+	right: 20px;
+}
+
+.primaryMenu li{
+	list-style-type: none;
+	float: left;
+	width: 242px;
+	height: 85px;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.primaryMenu a{
+	text-decoration: none;
+	color: #FFFFFF;
+	font-family: 'Alef', sans-serif;
+	font-size:  26px;
+	font-weight: bold;
+	line-height: 54px;
+	direction: rtl;
+}
+
+
+/*-------   Main Page   -------*/
+
+.mainPage{
+	position: relative;
+	float: right;
+}
+
+.mainPage section:first-child { top: 25px; }
+.mainPage section:last-child { top: 363px; }
+.mainPage section{
+	position: absolute;
+	right: 38px;
+	width: 895px;
+	height: 311px;
+	background-color: #eeeeee;
+}
+
+.mainPage h1{
+	color: #777777;
+	font-family: 'Alef', sans-serif;
+	font-size:  35px;
+	font-weight: bold;
+	direction: rtl;
+	margin-right: 15px;
+	display: block;
+}
+
+.mainPage ul{
+	text-align: right;
+}
+
+#chart{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 325px;
+	height: 325px;
+}
+
+.chartList{
+	padding-top: 20px;
+}
+
+.chartList b{
+	color: #000000;
+}
+
+.chartList > li{
+	list-style-type: none;
+	font-family: 'Alef', sans-serif;
+	font-size:  26px;
+	font-weight: bold;
+	direction: rtl;
+	text-align: right;
+	vertical-align: middle;
+	margin-bottom: 12px;
+}
+
+.chartList > li:nth-child(1) {
+  color: #049cdb;
+}
+
+.chartList > li:nth-child(2) {
+  color: #d9edf7;
+}
+
+.chartList > li:nth-child(3) {
+  color: #0088cc;
+}
+
+.chartList li:before {
+    content: '⬛';
+    font-size: 26px;
+    padding-right: 15px;
+}
+
+.msgList{
+	padding-top: 20px;
+}
+
+.msgList, .msgTimeList{
+	text-align: right;
+}
+
+.msgList li, .msgTimeList{
+	list-style-type: none;
+	font-family: 'Alef', sans-serif;
+	font-weight: bold;
+	direction: rtl;
+}
+
+.msgList li{
+	font-size: 30px;
+	margin-bottom: 10px;
+	background-image: url("../images/list.png");
+	background-repeat: no-repeat;
+	background-position: right 0px;
+	padding-right: 55px;
+}
+
+.msgTimeList{
+	position: absolute;
+	top: 75px;
+	right: 300px;
+}
+
+.msgTimeList li{
+	font-size:  26px;
+	margin-bottom: 16px;
+}
+
+/*-------------------------------*/

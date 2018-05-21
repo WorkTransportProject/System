@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Movix.me</title>
+		<link rel="stylesheet" href="includes/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Alef" rel="stylesheet">
+		<meta charset="UTF-8">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pizza/0.2.1/js/pizza.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pizza/0.2.1/js/vendor/dependencies.min.js"></script>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/pizza/0.2.1/css/vendor/normalize.min.css">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/pizza/0.2.1/css/vendor/foundation.min.css">
+	</head>
+	<body>
+		<div id="wrapper">
+			<header class="primaryHeader">
+				<a id="logo" href="index.html"></a>
+				<a id="user" href="#"></a>
+				<a id="bell" href="#"></a>
+				<div>
+					<input id="search" placeholder="Search"></input>
+				</div>
+			</header>
+			
+			<nav class="primaryMenu">
+				<ul>
+					<li><a href="#">העובדים</a></li>
+					<li><a href="#">השמת משמרת</a></li>
+					<li><a href="#">תלונות של עובדים</a></li>
+					<li><a href="#">איחורים על הסעה</a></li>
+					<li><a href="#">אישור סידור עבודה</a></li>
+					<li><a href="#">תלונות</a></li>
+					<li><a href="#">שלח הודעה לעובדים</a></li>
+					<li><a href="#">היסטוריית פעולות</a></li>
+				</ul>
+			</nav>
+			
+			<main class="mainPage">
+				<section>
+					<h1>מסכים חשובים</h1>
+					<div id="chart"></div>
+					<ul class="chartList" data-pie-id="chart">
+						<li data-value="25"><b>&nbsp;איחורים על ההסעה 25%</b></li>
+						<li data-value="40"><b>&nbsp;עובדים שמגעים בזמן 40%</b></li>
+						<li data-value="35"><b>&nbsp;תלונות 35%</b></li>
+					</ul>
+				</section>
+				
+				<section>
+					<h1>הודעות חדשות</h1>
+					<ul class="msgList">
+						<li>שלומי אצחק</li>
+						<li>יאן אסולין</li>
+						<li>דני חזן</li>
+						<li>אליקס  סיגאל</li>
+					</ul>
+					<ul class="msgTimeList">
+						<li>יום א" ב-10:30</li>
+						<li>יום א" ב-10:40</li>
+						<li>יום א" ב-13:30</li>
+						<li>יום א" ב-18:20</li>
+					</ul>	
+				</section>
+			</main>		
+		</div>
+		
+		<script>
+		$(window).load(function() {
+			Pizza.init();
+		});
+	   </script>
+	</body>
+	
+
+</html>
