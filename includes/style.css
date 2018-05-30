@@ -7,15 +7,38 @@ header, nav, main, footer, aside{
 	display: block;
 }
 
-#wrapper{
-	width: 1190px;
-	margin: 0px auto;
+@media screen and (min-width: 1190px){
+	#wrapper{
+		width: 1190px;
+		margin: 0px auto;
+	}
+	
+	#logo{
+		right: 0px;
+	}
+	
+	#search{
+		width: 581px;
+	}
+}
+@media screen and (max-width: 1189px) {
+	#wrapper{
+		width: 100%;
+		margin: 0px auto;
+	}
+	
+	#logo{
+		right: 50px;
+	}
+	
+	#search{
+		width: 95%;
+	}
 }
 
 #logo{
 	position: absolute;
 	bottom: 34px;
-	right: 0px;
 	width: 255px;
 	height: 44px;
 	background-image: url("../images/logo.png");
@@ -43,7 +66,6 @@ header, nav, main, footer, aside{
 }
 
 #search{
-	width: 581px;
 	height: 36px;
 	border-style: none;
 	border-color: #FFFFFF;
@@ -69,35 +91,94 @@ header, nav, main, footer, aside{
 
 .primaryHeader {
 	position: relative;
-	width: 1190px;
 	height: 113px;
+	float: right;
 	background-color: #555555;
 	margin-bottom: 1px;
 }
 
 .primaryHeader div{
 	position: absolute;
-	left: 265px;
 	top: 26px;
 	width: 637px;
 	height: 56px;
 	background-color: #c9c9ce;
 }
 
-.primaryMenu {
-	position: relative;
-	float: right;
-	width: 252px;
-	height: 687px;
-	background-color: #555555;
+@media screen and (min-width: 1190px) {
+	.primaryHeader {
+		width: 1190px;
+	}
+	
+	.primaryHeader div{
+		width: 637px;
+		left: 265px;
+	}
+	
+	.primaryMenu {
+		position: relative;
+		float: right;
+		width: 252px;
+		height: 687px;
+		background-color: #555555;
+	}
+	
+	.primaryMenu ul{
+		position: absolute;
+		top: 25px;
+		right: 20px;
+	}
 }
 
-.primaryMenu ul{
-	position: absolute;
-	top: 25px;
-	right: 20px;
+@media screen and (max-width: 1189px){
+	.primaryHeader {
+		width: 100%;	
+	}
+	
+	.primaryHeader div{
+		width: 45.12%;
+		left: 22.27%;
+	}
+	
+	.primaryMenu {
+		position: relative;
+		float: right;
+		top: -53px;
+		width: 50px;
+		height: 50px;
+		background-color: #555555;
+		background-image: url("../images/nav.png");
+		cursor: pointer;
+	}
+	
+	.primaryMenu:hover {
+		background-color: #EEEEEE;
+		background-image: url("../images/navhover.png");
+		border: solid 0px;
+		border-radius: 10px;
+	}
+	
+	.primaryMenu ul{
+		display: none;
+	}
+
+	.show{
+		position: absolute;
+		top: 45px;
+		right: 0;
+		width: 252px;
+		height: 687px;
+		background-color: #555555;
+		z-index: 1000;
+		display: block !important;
+	}
+	
+	.hide{
+		display: none !important;
+	}
 }
 
+	
 .primaryMenu li{
 	list-style-type: none;
 	float: left;
@@ -106,7 +187,7 @@ header, nav, main, footer, aside{
 	text-align: right;
 	vertical-align: middle;
 }
-
+	
 .primaryMenu a{
 	text-decoration: none;
 	color: #FFFFFF;
@@ -116,7 +197,11 @@ header, nav, main, footer, aside{
 	line-height: 54px;
 	direction: rtl;
 }
+	
 
+.primaryMenu a:hover{
+	color: #0096d8;
+}
 
 /*-------   Main Page   -------*/
 
