@@ -7,61 +7,40 @@ header, nav, main, footer, aside{
 	display: block;
 }
 
-@media screen and (min-width: 1190px){
-	#wrapper{
-		width: 1190px;
-		margin: 0px auto;
-	}
-	
-	#logo{
-		right: 0px;
-	}
-	
-	#search{
-		width: 581px;
-	}
-}
-@media screen and (max-width: 1189px) {
-	#wrapper{
-		width: 100%;
-		margin: 0px auto;
-	}
-	
-	#logo{
-		right: 50px;
-	}
-	
-	#search{
-		width: 95%;
-	}
-}
-
 #logo{
 	position: absolute;
 	bottom: 34px;
-	width: 255px;
+	width: 21.42%;
 	height: 44px;
 	background-image: url("../images/logo.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
 	display: block;
 }
 
 #user{
 	position: absolute;
 	top: 8px;
-	left: 6px;
-	width: 104px;
+	width: 8.74%;
 	height: 104px;
 	background-image: url("../images/user.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
 	display: block;
 }
 
 #bell{
 	position: absolute;
 	top: 25px;
-	left: 130px;
-	width: 60px;
+	left: 10.92%;
+	width: 5.04%;
 	height: 60px;
 	background-image: url("../images/bell.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
 	display: block;
 }
 
@@ -87,25 +66,22 @@ header, nav, main, footer, aside{
 	clear: both;
 }
 
-/*-------Primary Classes-------*/
-
-.primaryHeader {
-	position: relative;
-	height: 113px;
-	float: right;
-	background-color: #555555;
-	margin-bottom: 1px;
-}
-
-.primaryHeader div{
-	position: absolute;
-	top: 26px;
-	width: 637px;
-	height: 56px;
-	background-color: #c9c9ce;
-}
+/*------- Media Queries -------*/
 
 @media screen and (min-width: 1190px) {
+	#wrapper{
+		width: 1190px;
+		margin: 0px auto;
+	}
+	
+	#logo{
+		right: 0px;
+	}
+	
+	#search{
+		width: 581px;
+	}
+	
 	.primaryHeader {
 		width: 1190px;
 	}
@@ -128,9 +104,26 @@ header, nav, main, footer, aside{
 		top: 25px;
 		right: 20px;
 	}
+	
+	.mainPage, .workerPage{
+		width: 75.21%;
+	}
 }
 
 @media screen and (max-width: 1189px){
+	#wrapper{
+		width: 100%;
+		margin: 0px auto;
+	}
+	
+	#logo{
+		right: 50px;
+	}
+	
+	#search{
+		width: 95%;
+	}
+	
 	.primaryHeader {
 		width: 100%;	
 	}
@@ -155,29 +148,55 @@ header, nav, main, footer, aside{
 		background-color: #EEEEEE;
 		background-image: url("../images/navhover.png");
 		border: solid 0px;
-		border-radius: 10px;
+		border-radius: 5px;
 	}
 	
 	.primaryMenu ul{
 		display: none;
 	}
+	
+	@keyframes menuShow {
+		from {height: 0px;}
+		to {height: 687px;}
+	}
 
 	.show{
 		position: absolute;
-		top: 45px;
+		top: 52px;
 		right: 0;
 		width: 252px;
 		height: 687px;
 		background-color: #555555;
 		z-index: 1000;
 		display: block !important;
+		animation-name: menuShow;
+    	animation-duration: 0.5s;
 	}
 	
 	.hide{
 		display: none !important;
 	}
+	
+	.mainPage, .workerPage{
+		width: 100%;
+	}
 }
 
+/*-------Primary Classes-------*/
+
+.primaryHeader {
+	position: relative;
+	height: 113px;
+	float: right;
+	background-color: #555555;
+	margin-bottom: 1px;
+}
+
+.primaryHeader div{
+	position: absolute;
+	top: 26px;
+	background-color: #c9c9ce;
+}
 	
 .primaryMenu li{
 	list-style-type: none;
@@ -203,19 +222,19 @@ header, nav, main, footer, aside{
 	color: #0096d8;
 }
 
-/*-------   Main Page   -------*/
-
-.mainPage{
+.mainPage, .workerPage{
 	position: relative;
 	float: right;
 }
+
+/*-------   Main Page   -------*/
 
 .mainPage section:first-child { top: 25px; }
 .mainPage section:last-child { top: 363px; }
 .mainPage section{
 	position: absolute;
 	right: 38px;
-	width: 895px;
+	width: 100%;
 	height: 311px;
 	background-color: #eeeeee;
 }
@@ -238,7 +257,7 @@ header, nav, main, footer, aside{
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	width: 325px;
+	width: 36.31%;
 	height: 325px;
 }
 
@@ -314,4 +333,188 @@ header, nav, main, footer, aside{
 	margin-bottom: 16px;
 }
 
+
+.msgList form, .msgTimeList{
+	list-style-type: none;
+	font-family: 'Alef', sans-serif;
+	font-weight: bold;
+	direction: rtl;
+}
+
+.mainPage p{
+  width: 105px;
+  padding:1px 5px;
+  font-family:Arial, sans-serif;
+  text-align:center;
+  display:block;
+}
+
+/*-------   Worker  Page   -------*/
+
+.workerPage *{
+	text-align:right;
+}
+
+.workerPage table{
+	color: #606060;
+	font-family: 'Alef', sans-serif;
+	font-size:  31px;
+	font-weight: bold;
+	direction: rtl;
+	margin-right: 15px;
+	display: block;
+	border-collapse: separate;
+   	border-spacing: 26px;
+   	margin-left:auto; 
+    margin-right:auto;
+}
+
+.workerPage h1{
+	color: #000000;
+	font-family: 'Alef', sans-serif;
+	font-size:  30px;
+	font-weight: bold;
+	direction: rtl;
+	margin-right: 15px;
+	display: block;
+}
+
+.workerPage th{
+	color: #ffffff;
+	font-family: 'Alef', sans-serif;
+	background-color: #5bc0de;
+	font-size:  18px;
+	width: 184px;
+	height: 35px;
+    text-align:center; 
+    vertical-align:middle;
+    border-radius: 5px;
+    margin-right: 50px;
+}
+
+.workerPage th:last-child{
+	background-color: #FFFFFF;
+	width: 124px;
+}
+
+.workerPage td{
+	color: #000000;
+	font-family: 'Alef', sans-serif;
+	font-size:  18px;
+    text-align:center; 
+    vertical-align:middle;
+}
+
+.workerPage td:last-child{
+    background-color: #dff0d8;
+    border-radius: 5px;
+    background-image: url("../images/png1.png");
+    background-repeat: no-repeat;
+}
+	
+
+.workerPage td > img{
+	width: 20px;
+	height: 20px;
+}
+
+.workerPage a{
+	text-decoration: none;
+	color: #000000;
+}
+
+.workerPage * section:first-child { width: 335px; }
+.workerPage * section:nth-child(2) { width: 555px; padding-right: 40px; margin-bottom: 40px}
+.workerPage section{
+	position: relative;
+	float: right;
+}
+
+.workerPage label{
+	display: block;
+	padding-top: 10px;
+	height: 50px;
+	padding-right: 12px;
+	width: 100%;
+	float: left;
+}
+
+.workerPage label, .workerPage h2{
+	color: #000000;
+	font-family: 'Alef', sans-serif;
+	font-size:  18px;
+	font-weight: bold;
+}
+
+.workerPage * section:first-child input{
+	width: 210px;
+	float: left;
+}
+
+.workerPage select{
+	position: absolute;
+	top: 13px;
+	right: 150px;
+}
+
+.positionLeft{
+	position: absolute;
+	top: 58px;
+	right: 235px;
+}
+
+.inputDiv{
+	width: 100%;
+	height: 80px;
+	padding-top: 15px;
+	margin-bottom: 50px;
+	border: solid 0.5px;
+}
+
+.inputDiv input{
+	width: 180px;
+}
+
+/*-------   Button   -------*/
+
+.myButton {
+	-moz-box-shadow:inset 0px 0px 0px 0px #9acc85;
+	-webkit-box-shadow:inset 0px 0px 0px 0px #9acc85;
+	box-shadow:inset 0px 0px 0px 0px #9acc85;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #74ad5a), color-stop(1, #68a54b));
+	background:-moz-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+	background:-webkit-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+	background:-o-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+	background:-ms-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+	background:linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#74ad5a', endColorstr='#68a54b',GradientType=0);
+	background-color:#74ad5a;
+	-moz-border-radius:26px;
+	-webkit-border-radius:26px;
+	border-radius:26px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:8px 43px;
+	text-decoration:none;
+	width: 105px;
+  	display:block;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #68a54b), color-stop(1, #74ad5a));
+	background:-moz-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+	background:-webkit-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+	background:-o-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+	background:-ms-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+	background:linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#68a54b', endColorstr='#74ad5a',GradientType=0);
+	background-color:#68a54b;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
 /*-------------------------------*/
