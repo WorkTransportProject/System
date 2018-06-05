@@ -370,6 +370,7 @@ header, nav, main, footer, aside{
    	border-spacing: 26px;
    	margin-left:auto; 
     margin-right:auto;
+    margin-bottom: 100px;
 }
 
 .workerPage h1{
