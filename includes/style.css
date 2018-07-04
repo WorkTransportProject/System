@@ -222,6 +222,7 @@ header, nav, main, footer, aside{
 
 .primaryMenu a:hover{
 	color: #0096d8;
+	text-decoration: none;
 }
 
 .mainPage, .workerPage{
@@ -362,6 +363,20 @@ header, nav, main, footer, aside{
 	margin-top: 50px;
 }
 
+@media screen and (min-width: 1190px) {
+	.workerPage{
+		margin-right: 0;
+		margin-left: 0;
+	}
+}
+
+@media screen and (max-width: 1189px){
+	.workerPage{
+		padding-right: 10%;
+		padding-left: 10%;
+	}	
+}
+
 .workerPage table{
 	color: #606060;
 	font-family: 'Alef', sans-serif;
@@ -428,6 +443,13 @@ header, nav, main, footer, aside{
 
 .workerPage a{
 	text-decoration: none;
+}
+
+.workerPage a:hover{
+	text-decoration: none;	
+}
+
+.workerPage td > a{
 	color: #000000;
 }
 
@@ -485,9 +507,15 @@ header, nav, main, footer, aside{
 
 /*-------   Button   -------*/
 
-.btn{
+.btn:first-child{
 	margin-left: 100px;
 	margin-right: 120px;
+}
+
+.btn{
+
+	margin-left: 15px;
+	margin-bottom: 30px;
 	float: left;
 	display:inline-block;
 	font-family: 'Alef', sans-serif;

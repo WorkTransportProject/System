@@ -61,7 +61,7 @@
 					   	while($row = mysqli_fetch_assoc($result)) {
 					       //output data from each row
 					       echo "<tr>"."<td>" . $row["firstname"] ." " . $row["lastname"] . "</td><td>" .$row["phone"] ."</td><td>" .$row["date"] 
-					       		."</td><td><a href=workersForm.html>עריכה</a></td>" ."</tr>";
+					       		."</td><td><a href=workersForm.php?number=".$row["number"].">עריכה</a></td>" ."</tr>";
 					   	}
 					
 						//release returned data
@@ -72,7 +72,8 @@
 					?>
 				    
 				</table>
-				<button type ="submit" class="btn btn-primary">הדפסה</button>		           
+				<button class="btn btn-primary">הדפסה</button>
+				<a href="workersForm.php" class="btn btn-primary">הוספה</a>	             
 			</main>		
 		</div>
 		<script src="includes/script.js"></script>
