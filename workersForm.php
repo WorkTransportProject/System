@@ -5,8 +5,8 @@
 		<link rel="stylesheet" href="includes/style.css">
 		<link href="https://fonts.googleapis.com/css?family=Alef" rel="stylesheet">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		<meta charset="UTF-8">
-
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>
 	
@@ -53,48 +53,58 @@
 			 		//get data from DB to display
                 	$query1  = "SELECT * FROM tbl_workers_209 where number='$workerNumber'";
                 	$result = mysqli_query($connection, $query1);
-            
-                	$worker = mysqli_fetch_assoc($result);		
+                	$worker = mysqli_fetch_assoc($result);
+                    mysqli_free_result($result);  	
+					
+					//get data from DB to display
+                	$query2  = "SELECT * FROM tbl_workerTransport_209 where number='$workerNumber'";
+                	$result = mysqli_query($connection, $query2);
+                	$transport = mysqli_fetch_assoc($result);
+                    mysqli_free_result($result);  		
 
-					echo "
-						<section>
-							<label><input type=text required id=firstname name=firstname value=".$worker['firstname']."> :שם פרטי</label>
-							<label><input type=text required id=lastname name=lastname value=".$worker['lastname']."> :שם משפחה</label> 
-							<label><input type=text required id=number  pattern=[0-9]+ name=number value=".$worker['number']."> :מספר עובד</label>
-							<label><input type=tel required id=phone pattern=[0-9]+ name=phone value=".$worker['phone']."> :מספר טלפון</label>
-							<label><input type=text required id=depart name=depart value=".$worker['depart']."> :מחלקה</label>
-							<label><input type=date required id=date name=date value=".$worker['date']."> :תאריך התחלה </label>			
-					        <label><input type=text required id=address name =address value=".$worker['address']."> :כתובת </label>
-						</section>
-						
-						<section>
-				           <label>כיוון הסעה </label>
-				          		<select name =direction>
-									<option value=פיזור ואיסוף>פיזור ואיסוף</option>
-									<option value=פיזור>פיזור</option>
-				                	<option value=עסיפה>עסיפה</option>
-				                	<option value=לא זכי להסעות>לא זכי להסעות</option>
-				            	</select>
-							<label> מקבל הודעות SMS <input type=checkbox id=checkSMS name=checkSMS "; if($worker['sms'] != 0){ echo "checked";} echo"></label>
-							<label class=positionLeft> זכאי להסעות <input type=checkbox id=checkTransport name=checkTransport "; if($worker['transport'] != 0){ echo "checked";} echo"></label>
-							<h2>  אסיפה  </h2>
-							<div class=inputDiv>
-								<label>
-									<input type=text name=arriveFrom  placeholder= חדרה , שכונה > מ-תחנה
-									<input type=text name=arriveTo placeholder=שוהם >  ל
-								</label>
-							</div>
-							<h2> פיזור </h2>
-							<div class=inputDiv>
-								<label>
-									<input type=text name=leaveFrom  placeholder= שוהם  >  מ-תחנה:
-									<input type=text name=leaveTo  placeholder= חדרה , שכונה 9  >  ל
-								</label>
-							</div>
-						</section>";
-					//release returned data
-                    mysqli_free_result($result);   
-                
+				?>
+					<section>
+						<label><input type="text" required id="firstname" name="firstname" <?php echo "value='".$worker['firstname']."'" ?> > :שם פרטי</label>
+						<label><input type="text" required id="lastname" name="lastname" <?php echo "value='".$worker['lastname']."'" ?> > :שם משפחה</label> 
+						<label><input type="text" required id="number"  pattern="[0-9]+" name="number" <?php echo "value='".$worker['number']."'" ?> > :מספר עובד</label>
+						<label><input type="tel" required id="phone" pattern="[0-9]+" name="phone" <?php echo "value='".$worker['phone']."'" ?> > :מספר טלפון</label>
+						<label><input type="text" required id="depart" name="depart" <?php echo "value='".$worker['depart']."'" ?> > :מחלקה</label>
+						<label><input type="date" required id="date" name="date" <?php echo "value='".$worker['date']."'" ?> > :תאריך התחלה </label>			
+				        <label><input type="text" required id="address" name ="address" <?php echo "value='".$worker['address']."'" ?> > :כתובת </label>
+					</section>
+					
+					<section>
+						<?php $options = array("פיזור ואיסוף","פיזור","אסיפה","לא זכי להסעות")?>
+			           <label>כיוון הסעה </label>
+			          		<select id="direction" name="direction">
+			          			<?php
+				          			for($i = 0;$i < 4;$i++){
+									    if($options[$i] == $transport['direction']){
+									        echo "<option selected='selected' value='$options[$i]'>$options[$i]</option>";
+									    }else{
+									        echo "<option value='$options[$i]'>$options[$i]</option>";
+									    }
+									}
+			          			?>
+			            	</select>
+						<label> מקבל הודעות SMS <input type="checkbox" id="checkSMS" name="checkSMS" <?php if($worker['sms'] != 0){ echo "checked";} ?> ></label>
+						<label class="positionLeft"> זכאי להסעות <input type="checkbox" id="checkTransport" name="checkTransport" <?php if($worker['transport'] != 0){ echo "checked";} ?> ></label>
+						<h2 id="arriveH">  אסיפה  </h2>
+						<div id="arrive" class="inputDiv">
+							<label>
+								<input type="text" id="arriveTo" name="arriveTo" <?php echo "value='".$transport['arriveTo']."'" ?> > מ-תחנה
+								<input type="text" id="arriveFrom" name="arriveFrom" <?php echo "value='".$transport['arriveFrom']."'" ?> >  ל
+							</label>
+						</div>
+						<h2 id="leaveH"> פיזור </h2>
+						<div id="leave" class="inputDiv">
+							<label>
+								<input type="text" id="leaveTo" name="leaveTo"  <?php echo "value='".$transport['leaveTo']."'" ?>  >  מ-תחנה:
+								<input type="text" id="leaveFrom" name="leaveFrom" <?php echo "value='".$transport['leaveFrom']."'" ?> >  ל
+							</label>
+						</div>
+					</section>
+				<?php 
                     //close DB connection
                     mysqli_close($connection);
 				?>
@@ -102,15 +112,12 @@
 				<a href="workers.php" class="btn btn-primary">חזרה</a>
 				<?php 
 					if(!empty($queries)){
-						echo "<button type=submit name=delete class='btn btn-primary'>מחיקה</button>";
+						echo "<button type=submit name=delete class='btn btn-danger'>מחיקה</button>";
 					}
 				?>
-				<button type="submit" name="update" class="btn btn-primary">עדכון</button>
+				<button type="submit" name="update" class="btn btn-success">עדכון</button>
 				</form>
-				
-
 			</main>		
-			
 		</div>
 		<script src="includes/script_form.js"></script>
 		<script src="includes/script.js"></script>

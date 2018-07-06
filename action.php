@@ -13,6 +13,12 @@
 			$date = date("Y-m-d", strtotime($date));
 			$address = mysqli_real_escape_string($connection, $_POST['address']);
 			
+			$direction = mysqli_real_escape_string($connection, $_POST['direction']);
+			$arriveFrom = mysqli_real_escape_string($connection, $_POST['arriveFrom']);
+			$arriveTo = mysqli_real_escape_string($connection, $_POST['arriveTo']);
+			$leaveFrom = mysqli_real_escape_string($connection, $_POST['leaveFrom']);
+			$leaveTo = mysqli_real_escape_string($connection, $_POST['leaveTo']);
+			
 			if($_POST['checkSMS'] == '1'){
 				$sms = 1;
 			} else {
@@ -24,26 +30,45 @@
 				$transport = 0;
 			}
 	
-			//SET: insert new data to DB
-			$query = "INSERT INTO tbl_workers_209(firstname, lastname, number, phone, depart, date, address, sms, transport) 
+			//SET: insert worker data to DB
+			$query1 = "INSERT INTO tbl_workers_209(firstname, lastname, number, phone, depart, date, address, sms, transport) 
 						VALUES ('$firstname','$lastname','$number','$phone','$depart','$date','$address','$sms','$transport')
 						ON DUPLICATE KEY UPDATE firstname='$firstname',lastname='$lastname',phone='$phone',depart='$depart',
 												date='$date',address='$address',sms='$sms',transport='$transport'";
 	
-			$result = mysqli_query($connection, $query);		
-	 
+			$result = mysqli_query($connection, $query1);		
+	 		
+			//release returned data
+			mysqli_free_result($result);	
+			
+			//SET: insert worker transport data to DB
+			$query2 = "INSERT INTO tbl_workerTransport_209(number, direction, arriveFrom, arriveTo, leaveFrom, leaveTo) 
+						VALUES ('$number','$direction','$arriveFrom','$arriveTo','$leaveFrom','$leaveTo')
+						ON DUPLICATE KEY UPDATE number='$number',direction='$direction',arriveFrom='$arriveFrom',arriveTo='$arriveTo',leaveFrom='$leaveFrom',leaveTo='$leaveTo'";
+	
+			$result = mysqli_query($connection, $query2);		
+	 		
+			//release returned data
+			mysqli_free_result($result);	
 		}
 	}
 	else if ($_POST['action'] == "delete") {
 		$number = mysqli_real_escape_string($connection, $_POST['number']);
 		
-		$query = "DELETE FROM tbl_workers_209 WHERE number='$number'";
+		$query1 = "DELETE FROM tbl_workers_209 WHERE number='$number'";
 	
-		$result = mysqli_query($connection, $query);	
+		$result = mysqli_query($connection, $query1);	
+		
+		//release returned data
+		mysqli_free_result($result);
+		
+		$query2 = "DELETE FROM tbl_workerTransport_209 WHERE number='$number'";
+	
+		$result = mysqli_query($connection, $query2);	
+		
+		//release returned data
+		mysqli_free_result($result);		
 	}
-
-	//release returned data
-	mysqli_free_result($result);	
 
 	//close DB connection
 	mysqli_close($connection);

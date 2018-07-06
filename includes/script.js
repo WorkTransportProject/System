@@ -17,7 +17,7 @@ window.onload = function() {
 	};
 };
 
-$(window).load(function() {
+$(window).on('load',function() {
 	Pizza.init();
 });
 
