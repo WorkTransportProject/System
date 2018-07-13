@@ -7,7 +7,7 @@ var ajaxAction = function(dataString, sendMsg){
         success: function (msg) { 
         	swal({
 		  	text: sendMsg,
-		  	buttons: "בסדר",
+		  	buttons: "OK",
 			});                   
         },
         error: function (msg) {

@@ -16,8 +16,3 @@ window.onload = function() {
 	    }   	
 	};
 };
-
-$(window).on('load',function() {
-	Pizza.init();
-});
-

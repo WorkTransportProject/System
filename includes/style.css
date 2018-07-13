@@ -1,4 +1,4 @@
-* {
+﻿* {
 	margin: 0;
 	padding: 0;
 }
@@ -513,7 +513,7 @@ header, nav, main, footer, aside{
 }
 
 .btn{
-
+	color: #FFFFFF !important; 
 	margin-left: 15px;
 	margin-bottom: 30px;
 	float: left;
@@ -524,4 +524,79 @@ header, nav, main, footer, aside{
 	width: 105px;
   	display:block;
 }
+
+/*-----------My details-----------*/
+
+.Mydetails *{
+	text-align:right;
+}
+
+.Mydetails table{
+	color: #606060;
+	font-family: 'Alef', sans-serif;
+	font-size:  31px;
+	font-weight: bold;
+	direction: rtl;
+	margin-right: 15px;
+	display: block;
+	border-collapse: separate;
+   	border-spacing: 26px;
+   	margin-left:auto; 
+    margin-right:auto;
+}
+
+.Mydetails h1{
+	color: #000000;
+	font-family: 'Alef', sans-serif;
+	font-size:  30px;
+	font-weight: bold;
+	direction: rtl;
+	margin-right: 15px;
+	display: block;
+}
+
+
+
+
+.Mydetails td{
+	color: #000000;
+	font-family: 'Alef', sans-serif;
+	font-size:  18px;
+	text-align:right;
+    vertical-align:middle;
+	
+}
+
+.Mydetails td:not(:first-child){
+	color: #0096d8;	
+}
+
+
+.Mydetails a{
+	text-decoration: none;
+	color: #000000;
+}
+
+.Mydetails b{
+	color: #000000;
+}
+
+.Mydetails * section:first-child { width: 335px; }
+.Mydetails * section:nth-child(2) { width: 555px; padding-right: 40px; margin-bottom: 40px}
+.Mydetails section{
+	position: relative;
+	float: right;
+}
+
+.Mydetails label{
+	display: block;
+	padding-top: 10px;
+	height: 50px;
+	padding-right: 12px;
+	width: 100%;
+	float: left;
+}
+
+
+
 /*-------------------------------*/
